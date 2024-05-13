@@ -1,11 +1,5 @@
 [
   {
-    "id": "qdggE76Jtbfd9eWJHrssH",
-    "name": "Chaim Lewis",
-    "email": "dui.in@egetlacus.ca",
-    "phone": "(294) 840-6685"
-  },
-  {
     "id": "drsAJ4SHPYqZeG-83QTVW",
     "name": "Kennedy Lane",
     "email": "mattis.Cras@nonenimMauris.net",
@@ -64,5 +58,11 @@
     "name": "Павло Грушевський",
     "email": "pavlo@ukr.net",
     "phone": "+380503881111"
+  },
+  {
+    "id": "5-ZPG98jZBTPC-pRSvqLq",
+    "name": "Chaim Lewis",
+    "email": "dui.in@egetlacus.ca",
+    "phone": "(380) 840-6685"
   }
 ]

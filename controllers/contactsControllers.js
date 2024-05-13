@@ -10,11 +10,7 @@ import HttpError from "../helpers/HttpError.js";
 export async function getAllContacts(_, res, next) {
   try {
     const contacts = await listContacts();
-    res.status(200).json({
-      status: "success",
-      code: 200,
-      data: contacts,
-    });
+    res.status(200).json(contacts);
   } catch (error) {
     next(error);
   }
@@ -27,11 +23,7 @@ export async function getOneContact(req, res, next) {
     if (!contact) {
       throw HttpError(404);
     }
-    res.status(200).json({
-      status: "success",
-      code: 200,
-      data: contact,
-    });
+    res.status(200).json(contact);
   } catch (error) {
     next(error);
   }
@@ -46,11 +38,7 @@ export async function deleteContact(req, res, next) {
       throw HttpError(404);
     }
 
-    res.status(200).json({
-      status: "success",
-      code: 200,
-      data: removedContact,
-    });
+    res.status(200).json(removedContact);
   } catch (error) {
     next(error);
   }
@@ -66,11 +54,7 @@ export async function createContact(req, res, next) {
 
     const newContact = await addContact(name, email, phone);
 
-    res.status(201).json({
-      status: "success",
-      code: 201,
-      data: newContact,
-    });
+    res.status(201).json(newContact);
   } catch (error) {
     next(error);
   }
@@ -96,11 +80,7 @@ export async function updateContact(req, res, next) {
       throw HttpError(404);
     }
 
-    res.status(200).json({
-      status: "success",
-      code: 200,
-      data: updatedContact,
-    });
+    res.status(200).json(updatedContact);
   } catch (error) {
     next(error);
   }
