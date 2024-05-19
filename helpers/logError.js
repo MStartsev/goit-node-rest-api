@@ -13,10 +13,10 @@ async function logError(error) {
     const data = await readFile(ERROR_LOG_FILE, "utf8");
     const errors = data.trim().split(divide);
     if (errors.length >= MAX_LOG_ERRORS) {
-      errors.shift();
+      errors.pop();
     }
 
-    errors.push(errorMessage);
+    errors.unshift(errorMessage);
 
     await writeFile(ERROR_LOG_FILE, errors.join(divide), "utf8");
   } catch (err) {

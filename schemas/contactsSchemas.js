@@ -12,6 +12,7 @@ const createContactSchema = Joi.object({
     .trim()
     .regex(/^\+?(?:\d{1,3}|\(\d{1,3}\))?\s?\d{3,12}-?\d{3,12}$/)
     .required(),
+  favorite: Joi.boolean(),
 });
 
 const updateContactSchema = Joi.object({
@@ -24,6 +25,11 @@ const updateContactSchema = Joi.object({
   phone: Joi.string()
     .trim()
     .regex(/^\+?(?:\d{1,3}|\(\d{1,3}\))?\s?\d{3,12}-?\d{3,12}$/),
+  favorite: Joi.boolean(),
 });
 
-export { createContactSchema, updateContactSchema };
+const updateFavoriteSchema = Joi.object({
+  favorite: Joi.boolean().required(),
+});
+
+export { createContactSchema, updateContactSchema, updateFavoriteSchema };
