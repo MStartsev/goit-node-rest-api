@@ -17,9 +17,22 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   { versionKey: false }
 );
+
+contactSchema.methods.toJSON = function () {
+  const contact = this;
+  const contactObject = contact.toObject();
+
+  delete contactObject.owner;
+  return contactObject;
+};
 
 contactSchema.pre("findOneAndUpdate", setUpdateSettings);
 contactSchema.post("save", handleSaveError);

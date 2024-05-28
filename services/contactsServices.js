@@ -1,13 +1,16 @@
 import Contact from "../models/contact.js";
 
-export const listContacts = async () => await Contact.find();
+export const listContacts = async (search = {}) => {
+  const { filter = {}, fields = "", settings = {} } = search;
+  return await Contact.find(filter, fields, settings);
+};
 
-export const getContactById = async (_id) => await Contact.findById(_id);
+export const getContactById = async (filter) => await Contact.findOne(filter);
 
-export const removeContact = async (_id) =>
-  await Contact.findByIdAndDelete(_id);
+export const removeContact = async (filter) =>
+  await Contact.findOneAndDelete(filter);
 
-export const addContact = async (body) => Contact.create(body);
+export const addContact = async (body) => await Contact.create(body);
 
-export const updateContactById = async (_id, updatedFields) =>
-  Contact.findByIdAndUpdate(_id, updatedFields);
+export const updateContactById = async (filter, body) =>
+  await Contact.findOneAndUpdate(filter, body, { new: true });
