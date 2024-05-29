@@ -1,0 +1,104 @@
+2024-05-29T19:05:59.908Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T19:05:07.791Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T19:04:47.865Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:9:35)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T19:03:27.653Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T18:59:32.066Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T18:58:56.027Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T18:57:38.075Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
+2024-05-29T18:54:40.123Z - Error: Not authorized
+    at HttpError (file:///C:/main/prog/goit-node-rest-api/helpers/HttpError.js:10:17)
+    at authError (file:///C:/main/prog/goit-node-rest-api/helpers/authError.js:3:25)
+    at authenticate (file:///C:/main/prog/goit-node-rest-api/middlewares/authenticate.js:25:10)
+    at Layer.handle [as handle_request] (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:328:13)
+    at C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\main\prog\goit-node-rest-api\node_modules\express\lib\router\index.js:47:12)
+
+___
