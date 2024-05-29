@@ -41,8 +41,9 @@ async function getOneContact(req, res, next) {
 }
 
 async function deleteContact(req, res, next) {
-  const { id } = req.params;
-  const removedContact = await removeContact(id);
+  const { id: _id } = req.params;
+  const { _id: owner } = req.user;
+  const removedContact = await removeContact({ _id, owner });
 
   if (!removedContact) {
     throw HttpError(404);
