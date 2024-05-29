@@ -6,6 +6,7 @@ import {
   updateFavoriteSchema,
 } from "../schemas/contactsSchemas.js";
 import authenticate from "../middlewares/authenticate.js";
+import upload from "../middlewares/upload.js";
 import validateBody from "../helpers/validateBody.js";
 import isValidId from "../middlewares/isValidId.js";
 
@@ -28,7 +29,12 @@ contactsRouter.get("/:id", isValidId, getOneContact);
 
 contactsRouter.delete("/:id", isValidId, deleteContact);
 
-contactsRouter.post("/", validateBody(createContactSchema), createContact);
+contactsRouter.post(
+  "/",
+  upload.single("avatar"),
+  validateBody(createContactSchema),
+  createContact
+);
 
 contactsRouter.put(
   "/:id",
