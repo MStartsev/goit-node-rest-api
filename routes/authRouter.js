@@ -5,28 +5,41 @@ import {
   usersLogin,
   updateUserSubscriptionSchema,
 } from "../schemas/authSchema.js";
-import authController from "../controllers/authControllers.js";
+import upload from "../middlewares/upload.js";
 import authenticate from "../middlewares/authenticate.js";
+import authController from "../controllers/authControllers.js";
+
+const {
+  register,
+  login,
+  getCurrent,
+  logout,
+  updateSubscription,
+  updateAvatar,
+} = authController;
 
 const authRouter = express.Router();
 
-authRouter.post(
-  "/register",
-  validateBody(usersRegister),
-  authController.register
-);
+authRouter.post("/register", validateBody(usersRegister), register);
 
-authRouter.post("/login", validateBody(usersLogin), authController.login);
+authRouter.post("/login", validateBody(usersLogin), login);
 
-authRouter.get("/current", authenticate, authController.getCurrent);
+authRouter.get("/current", authenticate, getCurrent);
 
-authRouter.post("/logout", authenticate, authController.logout);
+authRouter.post("/logout", authenticate, logout);
 
 authRouter.patch(
   "/",
   authenticate,
   validateBody(updateUserSubscriptionSchema),
-  authController.updateSubscription
+  updateSubscription
+);
+
+authRouter.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  updateAvatar
 );
 
 export default authRouter;

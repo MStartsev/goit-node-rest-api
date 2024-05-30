@@ -7,16 +7,16 @@ import "dotenv/config";
 import authRouter from "./routes/authRouter.js";
 import contactsRouter from "./routes/contactsRouter.js";
 import logError from "./helpers/logError.js";
+import { FILES_STORAGE } from "./constants.js";
 
 const { DB_HOST, PORT = 3000 } = process.env;
-const STATIC = "public";
 
 const app = express();
 
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
-app.use(express.static(STATIC));
+app.use(express.static(FILES_STORAGE));
 
 app.use("/api/users", authRouter);
 app.use("/api/contacts", contactsRouter);
