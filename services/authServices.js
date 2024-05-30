@@ -10,3 +10,6 @@ export const createUser = async (body) => {
 
 export const updateUser = async (filter, body) =>
   await User.findOneAndUpdate(filter, body, { new: true });
+
+//Only for tests
+export const deleteAllUsers = () => User.deleteMany();
