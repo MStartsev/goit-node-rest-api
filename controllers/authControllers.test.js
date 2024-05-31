@@ -2,11 +2,7 @@ import mongoose from "mongoose";
 import request from "supertest";
 
 import app from "../app.js";
-import {
-  findUser,
-  createUser,
-  deleteAllUsers,
-} from "../services/authServices.js";
+import { findUser, deleteAllUsers } from "../services/authServices.js";
 
 const { DB_HOST_TEST, PORT, USER_EMAIL, USER_PASSWORD } = process.env;
 const userSign = {
@@ -21,7 +17,7 @@ describe("test /api/users/login", () => {
     await mongoose.connect(DB_HOST_TEST);
     server = app.listen(PORT);
 
-    await createUser(userSign);
+    await request(app).post("/api/users/register").send(userSign);
   });
 
   afterAll(async () => {
@@ -42,9 +38,12 @@ describe("test /api/users/login", () => {
     expect(typeof body.token).toBe("string");
     expect(body.user.email).toBe(userSign.email);
     expect(typeof body.user.subscription).toBe("string");
+    expect(typeof body.user.avatarURL).toBe("string");
 
     const user = await findUser({ token: body.token });
     expect(user).not.toBeNull();
-    expect(user.email).toBe(userSign.email);
+    expect(user.email).toBe(body.user.email);
+    expect(user.subscription).toBe(body.user.subscription);
+    expect(user.avatarURL).toBe(body.user.avatarURL);
   });
 });
