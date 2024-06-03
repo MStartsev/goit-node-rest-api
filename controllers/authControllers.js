@@ -1,7 +1,9 @@
 import path from "path";
 import fs from "fs/promises";
 import Jimp from "jimp";
+import { nanoid } from "nanoid";
 import { findUser, createUser, updateUser } from "../services/authServices.js";
+import { sendEmail, createEmailTemplate } from "../services/mailServices.js";
 import { controllerWrapper } from "../decorators/controllerWrapper.js";
 import HttpError from "../helpers/HttpError.js";
 import bcrypt from "bcrypt";
@@ -17,8 +19,21 @@ const register = async (req, res) => {
     throw HttpError(409, "Email in use");
   }
 
+  const verificationToken = nanoid();
+
+  const emailTemplate = createEmailTemplate({ email, verificationToken });
+
+  const emailSendStatus = await sendEmail(emailTemplate);
+  if (!emailSendStatus) {
+    throw HttpError(500, "SMTP services error. Please, try again later");
+  }
+
   const avatarURL = gravatar.url(email, { protocol: "https" });
-  const newUser = await createUser({ ...req.body, avatarURL });
+  const newUser = await createUser({
+    ...req.body,
+    avatarURL,
+    verificationToken,
+  });
 
   res.status(201).json({
     user: {
@@ -39,6 +54,10 @@ const login = async (req, res) => {
   const compareResult = await bcrypt.compare(password, user.password);
   if (!compareResult) {
     throw HttpError(401, "Email or password is wrong");
+  }
+
+  if (!user.verify) {
+    throw HttpError(401, "Unverified user");
   }
 
   const { _id: id } = user;
@@ -123,8 +142,54 @@ const updateAvatar = async (req, res, next) => {
   }
 };
 
+const verificationEmail = async (req, res) => {
+  const { verificationToken } = req.params;
+
+  if (!verificationToken) {
+    throw HttpError(400);
+  }
+
+  const user = await findUser({ verificationToken });
+  if (!user) throw HttpError(404, "User not found");
+
+  const { _id } = user;
+
+  await updateUser(
+    { _id },
+    {
+      verify: true,
+      verificationToken: null,
+    }
+  );
+
+  res.status(200).json({ message: "Verification successful" });
+};
+
+const sendEmailVerification = async (req, res) => {
+  const { email } = req.body;
+  const user = await findUser({ email });
+  const { verify, verificationToken } = user;
+
+  if (!user) {
+    throw HttpError(400, "Email is not registered");
+  }
+  if (verify) {
+    throw HttpError(400, "Verification has already been passed");
+  }
+
+  const emailTemplate = createEmailTemplate({ email, verificationToken });
+  const emailSendStatus = await sendEmail(emailTemplate);
+  if (!emailSendStatus) {
+    throw HttpError(500, "SMTP services error. Please, try again later");
+  }
+
+  res.status(200).json({ message: "Verification email sent" });
+};
+
 export default {
   register: controllerWrapper(register),
+  sendEmailVerification: controllerWrapper(sendEmailVerification),
+  verificationEmail: controllerWrapper(verificationEmail),
   login: controllerWrapper(login),
   getCurrent: controllerWrapper(getCurrent),
   logout: controllerWrapper(logout),

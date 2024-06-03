@@ -4,6 +4,7 @@ import {
   usersRegister,
   usersLogin,
   updateUserSubscriptionSchema,
+  verify,
 } from "../schemas/authSchema.js";
 import upload from "../middlewares/upload.js";
 import authenticate from "../middlewares/authenticate.js";
@@ -11,6 +12,8 @@ import authController from "../controllers/authControllers.js";
 
 const {
   register,
+  verificationEmail,
+  sendEmailVerification,
   login,
   getCurrent,
   logout,
@@ -20,7 +23,11 @@ const {
 
 const authRouter = express.Router();
 
+authRouter.get("/verify/:verificationToken", verificationEmail);
+
 authRouter.post("/register", validateBody(usersRegister), register);
+
+authRouter.post("/verify", validateBody(verify), sendEmailVerification);
 
 authRouter.post("/login", validateBody(usersLogin), login);
 
